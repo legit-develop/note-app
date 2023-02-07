@@ -4,3 +4,10 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.heading {
+  color: #20262e;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 35px;
+}
