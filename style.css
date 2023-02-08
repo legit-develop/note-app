@@ -27,15 +27,27 @@ body {
 }
 
 .note {
+  font-family: "Dancing Script", cursive;
   padding: 18px;
   border-radius: 15px;
   resize: none;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-  font-size: 17px;
+  font-size: 28px;
   height: 200px;
-  color: darkblue;
+  color: #00425a;
   border: none;
   outline: none;
   background: rgba(255, 255, 255, 0.6);
   box-sizing: border-box; /* to remove extra size */
+}
+
+.note::placeholder {
+  color: gray;
+  opacity: 30%;
+}
+
+.note:hover,
+.note:focus {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  transition: all 300ms ease;
 }
