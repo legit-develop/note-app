@@ -34,7 +34,11 @@ function updateNote(id, content) {
   saveNote(notes);
 }
 
-function deleteNote() {}
+function deleteNote(id, element) {
+  const notes = getNotes().filter((note) => note.id != id);
+  saveNote(notes);
+  appEl.removeChild(element);
+}
 
 function addNote() {
   const notes = getNotes();
