@@ -27,6 +27,7 @@ function updateNote() {}
 function deleteNote() {}
 
 function addNote() {
+  const notes = getNotes();
   const noteObj = {
     id: Math.floor(Math.random() * 100000),
     content: "",
@@ -35,6 +36,17 @@ function addNote() {
   //console.log(noteObj);
   const noteEl = createNoteEl(noteObj.id, noteObj.content);
   appEl.insertBefore(noteEl, btnEl);
+
+  notes.push(noteObj);
+  saveNote(notes);
+}
+
+function saveNote(note) {
+  localStorage.setItem("note-app", JSON.stringify(note));
+}
+
+function getNotes() {
+  return JSON.parse(localStorage.getItem("note-app") || "[]");
 }
 
 btnEl.addEventListener("click", addNote);
