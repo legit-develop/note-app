@@ -2,6 +2,11 @@ const btnEl = document.getElementById("btn");
 console.log(btnEl);
 const appEl = document.getElementById("app");
 
+getNotes().forEach((note) => {
+  const noteEl = createNoteEl(note.id, note.content);
+  appEl.insertBefore(noteEl, btnEl);
+});
+
 function createNoteEl(id, content) {
   //console.log(id, content);
   const element = document.createElement("textarea");
@@ -22,7 +27,12 @@ function createNoteEl(id, content) {
   return element;
 }
 
-function updateNote() {}
+function updateNote(id, content) {
+  const notes = getNotes();
+  const target = notes.filter((note) => note.id == id)[0];
+  target.content = content;
+  saveNote(notes);
+}
 
 function deleteNote() {}
 
